@@ -1,5 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:solo/contants.dart';
+import 'newsfeed.dart';
+import 'news.dart';
+import 'community.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,12 +32,12 @@ class _MainPageState extends State<MainPage> {
   int _page = 0;
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-      body: new PageView(
-        children:[
-          new Container (color: Colors.green),
-          new Container (color: Colors.blue),
-          new Container (color: Colors.grey)
+        return new Scaffold(
+          body: new PageView(
+            children:[
+          new NewsFeed(),
+          new News(),
+          new Community()
         ],
         controller: _pageController,
         onPageChanged: onPageChanged
@@ -42,15 +46,15 @@ class _MainPageState extends State<MainPage> {
         items: [
           new BottomNavigationBarItem(
             icon: new Icon(Icons.notification_important),
-            title: new Text("Noticias")
+            title: new Text("NewsFeed")
           ),
           new BottomNavigationBarItem(
             icon: new Icon (Icons.add),
-            title: new Text("Novidades")
+            title: new Text("News")
           ),
           new BottomNavigationBarItem(
             icon: new Icon (Icons.people),
-            title: new Text ("Comunidade")
+            title: new Text ("Community")
           )
         ],
         onTap: navigationTapped,
