@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:solo/contants.dart';
 import 'main.dart';
+import 'contants.dart';
 
 class NewsFeed extends StatefulWidget {
   NewsFeed({Key key}) : super(key: key);
@@ -36,19 +38,36 @@ class Title extends StatefulWidget {
 }
 
 class _TitleState extends State<Title> {
+  bool _pinned = true;
+  bool _snap = false;
+  bool _floating = false;
+
   @override
-    Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
     return Container(
-      padding:  EdgeInsets.fromLTRB(20, 30, 20, 20),
-      child:
-      Text('NewsFeed',
-      textAlign: TextAlign.center,
-      style: TextStyle(
-        fontSize: 38,
-        fontStyle: FontStyle.normal
+      decoration: new BoxDecoration(
+        borderRadius: new BorderRadius.only(
+          topLeft: const Radius.circular(40.0),
+          topRight: const Radius.circular(40.0),
+        )
       ),
+      child: Scaffold(
+         body: CustomScrollView(
+           slivers: <Widget>[
+           SliverAppBar(
+             backgroundColor: lFirtColor,
+             pinned: this._pinned,
+             snap: this._snap,
+             floating: this._floating,
+             expandedHeight: 80.0,
+             flexibleSpace: FlexibleSpaceBar(
+               title: Text("NewsFeed"),
+               centerTitle: true,
+             ),
+           )
+           ],
+         ),
       ),
     );
   }
 }
-
