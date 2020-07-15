@@ -20,9 +20,8 @@ class _MainPageState extends State<MainPage> {
           appBar: buildAppBar(),
           body: new PageView(
             children:[
-          new Title(color: Colors.black,
-          child: Container(),),
           new News(),
+          new NewsFeed(),
           new Community()
         ],
         controller: _pageController,
@@ -31,12 +30,12 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar:  new BottomNavigationBar(
         items: [
           new BottomNavigationBarItem(
-            icon: new Icon(Icons.notification_important),
-            title: new Text("NewsFeed")
+            icon: new Icon(Icons.add),
+            title: new Text("News")
           ),
           new BottomNavigationBarItem(
-            icon: new Icon (Icons.add),
-            title: new Text("News")
+            icon: new Icon (Icons.notification_important),
+            title: new Text("NewsFeed")
           ),
           new BottomNavigationBarItem(
             icon: new Icon (Icons.people),
@@ -52,7 +51,7 @@ class _MainPageState extends State<MainPage> {
   AppBar buildAppBar() {
     return AppBar(
           backgroundColor: Colors.white,
-          elevation: 5,
+          elevation: 0.2,
           leading: IconButton(
             icon: const Icon(Icons.keyboard_backspace,
             color: lTitleTextColor),
